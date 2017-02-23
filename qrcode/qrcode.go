@@ -1,12 +1,12 @@
 package qrcode
 
-// #cgo LDFLAGS: -lzbar -lpng -ljpeg -lz -lrt -lm -pthread
+// #cgo LDFLAGS: -lzbar -lpng -ljpeg -lz -lm -pthread
 // #include <stdio.h>
 // #include <stdlib.h>
 // #include <png.h>
 // #include <zbar.h>
 // #include "get_data.h"
-// typedef void (*zbar_image_set_data_callback)(zbar_image_t *  image);
+// typedef zbar_image_cleanup_handler_t *zbar_image_set_data_callback;
 import "C"
 import (
 	"errors"
