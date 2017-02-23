@@ -44,7 +44,7 @@ func GetDataFromPNG(pngPath string) (results []Result, err error) {
 	C.zbar_image_set_format(image, C.ulong(808466521))
 	C.zbar_image_set_size(image, C.uint(width), C.uint(height))
 
-	f := C.zbar_image_set_data_callback(C.CString(C.zbar_image_free_data))
+	f := C.zbar_image_set_data_callback(unsafe.Pointer(C.zbar_image_free_data))
 	C.zbar_image_set_data(image, raw, C.ulong(width*height), f)
 
 	C.zbar_scan_image(scanner, image)
